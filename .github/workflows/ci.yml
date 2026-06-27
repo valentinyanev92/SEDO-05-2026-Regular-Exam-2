@@ -17,13 +17,13 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '6.0.x'
 
       - name: Restore dependencies
         run: dotnet restore Homies.sln
 
       - name: Build application
-        run: dotnet build Homies.sln --configuration Release --no-restore
+        run: dotnet build Homies.sln --configuration Release --no-restore /p:WarningLevel=0
 
       - name: Run all tests
         run: dotnet test Homies.sln --configuration Release --no-build
